@@ -2,10 +2,10 @@ const report = require("multiple-cucumber-html-reporter");
 
 report.generate({
   jsonDir: "test-results",
-  reportPath: "./",
-  repotName:"Playwright Automation Report",
-  pageTitle:"BookCart App Test Report",
-  DisplayDuration:false,
+  reportPath: "./reports",
+  reportName: "Playwright Automation Report",
+  pageTitle: "BookCart App Test Report",
+  displayDuration: true,
   metadata: {
     browser: {
       name: "chrome",

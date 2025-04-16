@@ -1,6 +1,7 @@
 import { Before, After, BeforeAll, AfterAll, Status } from "@cucumber/cucumber";
-import{Page, Browser, chromium, expect, BrowserContext} from '@playwright/test'
+import { Page, Browser, chromium, expect, BrowserContext } from '@playwright/test'
 import { pageFixture } from "./pageFixture";
+import { config } from "../../config/config";
 
 let browser:Browser
 let page:Page
@@ -9,10 +10,12 @@ let context: BrowserContext;
 BeforeAll(async function () {
     browser = await chromium.launch({ headless: false });
 });
-
 Before(async function (){
-    context=await browser.newContext()
-    page=await context.newPage()
+    context = await browser.newContext()
+    page = await context.newPage()
+    pageFixture.page = page
+    // Navigate to base URL before each scenario
+    await pageFixture.page.goto(config.baseUrl);
     pageFixture.page = page
 })
 

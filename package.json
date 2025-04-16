@@ -3,8 +3,9 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "cucumber-js test || true",
-    "posttest":"npx ts-node src/test/helper/report.ts"
+    "test": "cucumber-js || true",
+    "report": "npx ts-node src/test/helper/report.ts",
+    "test:report": "npm run test && npm run report"
   },
   "keywords": [],
   "author": "",
